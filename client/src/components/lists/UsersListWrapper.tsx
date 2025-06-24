@@ -5,15 +5,11 @@ import { Skeleton } from "primereact/skeleton";
 import { DataTable } from "primereact/datatable";
 import { Column } from "primereact/column";
 
-import User from "@/types/User";
+import { ComponentUsersListProps } from "@/types/ComponentUserProps";
 
 const UsersList = lazy(() => import("./UsersListWithFilters"));
 
-type ListProps = {
-  users: User[];
-};
-
-export default function UsersListWrapper({ users }: ListProps) {
+export default function UsersListWrapper({ users }: ComponentUsersListProps) {
   const getTableSkeleton = () => {
     const items = [
       { value: 1 },

@@ -34,6 +34,7 @@ export default function EditUserDialog() {
   const validateData = (userData: User): ValidationResult => {
     const errors: ValidationResult["errors"] = {};
 
+    // Regex de validación para el input por seguridad, y evitar inyección de código malicioso.
     const safeRegexValidation = /^[a-zA-Z0-9\- ]+$/;
 
     if (!userData.usuario.trim()) {
@@ -41,7 +42,10 @@ export default function EditUserDialog() {
       setFormErrors({ ...formErrors, usuario: "El nombre es obligatorio" });
     }
 
-    if (!safeRegexValidation.test(userData.usuario.trim())) {
+    if (
+      userData.usuario &&
+      !safeRegexValidation.test(userData.usuario.trim())
+    ) {
       errors.usuario = "Alguno de los caracteres usado no es válido";
       setFormErrors({
         ...formErrors,

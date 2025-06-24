@@ -11,16 +11,14 @@ import { getAllUsers } from "@/services/userService";
 import useUsersContext from "../contexts/Userscontext";
 
 import User from "@/types/User";
+import { ComponentUsersListProps } from "@/types/ComponentUserProps";
+
 import DeleteUserButton from "../buttons/DeleteUserButton";
 import EditUserButton from "../buttons/EditUserButton";
 
 import { STATES, SECTORS } from "@/constants/constants";
 
-type ListProps = {
-  users: User[];
-};
-
-export default function UserList({ users }: ListProps) {
+export default function UserList({ users }: ComponentUsersListProps) {
   const { userActionCompleted } = useUsersContext();
   const [usersAll, setUsersAll] = useState<User[]>(users);
 

@@ -4,13 +4,10 @@ import React from "react";
 import { Button } from "primereact/button";
 import useUsersContext from "../contexts/Userscontext";
 
+import { ComponentUserProps } from "@/types/ComponentUserProps";
 import User from "@/types/User";
 
-type EditUserProps = {
-  user: User;
-};
-
-export default function EditUserButton({ user }: EditUserProps) {
+export default function EditUserButton({ user }: ComponentUserProps) {
   const { setEditUserDialogOpen, setSelectedUser, setDialogActionType } =
     useUsersContext();
 

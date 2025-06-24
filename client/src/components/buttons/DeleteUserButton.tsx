@@ -4,13 +4,10 @@ import React from "react";
 import { Button } from "primereact/button";
 import useUsersContext from "../contexts/Userscontext";
 
+import { ComponentUserProps } from "@/types/ComponentUserProps";
 import User from "@/types/User";
 
-type DeleteUserProps = {
-  user: User;
-};
-
-export default function DeleteUserButton({ user }: DeleteUserProps) {
+export default function DeleteUserButton({ user }: ComponentUserProps) {
   const { setDeleteUserDialogOpen, setSelectedUser, setDialogActionType } =
     useUsersContext();
 
